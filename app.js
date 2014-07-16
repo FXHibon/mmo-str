@@ -6,7 +6,6 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
 var routes = require('./routes/index');
-var users = require('./routes/users');
 
 var app = express();
 
@@ -22,11 +21,14 @@ app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded());
 app.use(cookieParser());
-//app.use(express.static(path.join(__dirname, 'public')));
+
+// Rend le dossier "public" accessible en tant que fichiers statiques pour le client (images, js perso etc ...)
+app.use(express.static(path.join(__dirname, 'public')));
+
+// Link le dossier bower_components pour le rendre accessible aux clients (ce sont les composants polymer notamment)
 app.use(express.static(path.join(__dirname, 'bower_components')));
 
 app.use('/', routes);
-app.use('/users', users);
 
 /// catch 404 and forward to error handler
 app.use(function(req, res, next) {
