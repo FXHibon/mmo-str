@@ -28,6 +28,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 // Link le dossier bower_components pour le rendre accessible aux clients (ce sont les composants polymer notamment)
 app.use(express.static(path.join(__dirname, 'bower_components')));
 
+// Notre seule route pour le moment, qui redirige qui ammène vers la page d'accueil
 app.use('/', routes);
 
 /// catch 404 and forward to error handler

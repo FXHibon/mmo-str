@@ -21,6 +21,13 @@
     "polymer": "Polymer/polymer#~0.3.4",
     "core-header-panel": "Polymer/core-header-panel#~0.3.4",
     "core-toolbar": "Polymer/core-toolbar#~0.3.4",
-    "paper-tabs": "Polymer/paper-tabs#~0.3.4"
+    "paper-tabs": "Polymer/paper-tabs#~0.3.4",
+    "font-roboto": "Polymer/font-roboto#~0.3.4",
+    "google-signin": "GoogleWebComponents/google-signin#~0.0.7"
+  },
+  "resolutions": {
+    "platform": ">=0.3.0 <1.0.0",
+    "core-component-page": ">=0.3.0 <1.0.0",
+    "polymer": ">=0.3.0 <1.0.0"
   }
 }

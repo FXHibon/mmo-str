@@ -5,15 +5,19 @@
     <meta name="viewport"
           content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
 
-    <link rel="stylesheet" href="stylesheets/style.css" />
+    <link rel="stylesheet" href="stylesheets/style.css"/>
     <script src="/platform/platform.js">
     </script>
+    <link rel="import"
+          href="/font-roboto/roboto.html">
     <link rel="import"
           href="/core-header-panel/core-header-panel.html">
     <link rel="import"
           href="/core-toolbar/core-toolbar.html">
     <link rel="import"
           href="/paper-tabs/paper-tabs.html">
+    <link rel="import"
+          href="/google-signin/google-signin.html">
 </head>
 
 <body unresolved touch-action="auto">
@@ -26,14 +30,14 @@
     </core-toolbar>
 
     <!-- main page content will go here -->
+    <div class="container" layout vertical center>
+    </div>
+
 
 </core-header-panel>
 
-<script>
-    var tabs = document.querySelector('paper-tabs');
-    tabs.addEventListener('core-select', function () {
-        console.log("Selected: " + tabs.selected);
-    });
+<!-- Gestion des onglets -->
+<script src="/scripts/tabs.js">
 </script>
 </body>
 </html>
