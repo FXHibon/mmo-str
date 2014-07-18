@@ -23,7 +23,8 @@
     "core-toolbar": "Polymer/core-toolbar#~0.3.4",
     "paper-tabs": "Polymer/paper-tabs#~0.3.4",
     "font-roboto": "Polymer/font-roboto#~0.3.4",
-    "google-signin": "GoogleWebComponents/google-signin#~0.0.7"
+    "google-signin": "GoogleWebComponents/google-signin#~0.0.7",
+    "facebook-login": "*"
   },
   "resolutions": {
     "platform": ">=0.3.0 <1.0.0",
