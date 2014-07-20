@@ -15,3 +15,7 @@ $ bower install<br />
 
 #2 - Launch server
 $ npm start
+
+#3 - Authors
+- Baptiste Pignol (https://github.com/BaptistePignol)
+- FXHibon (https://github.com/FXHibon)

@@ -3,7 +3,8 @@
   "version": "0.0.0",
   "homepage": "https://github.com/FXHibon/mmo-str",
   "authors": [
-    "FXHibon <djxf44@gmail.com>"
+    "FXHibon <djxf44@gmail.com>",
+    "BaptistePignol <pignol.baptiste@gmail.com>"
   ],
   "moduleType": [
     "node"
