@@ -17,5 +17,5 @@ $ bower install<br />
 $ npm start
 
 #3 - Authors
-- Baptiste Pignol (https://github.com/BaptistePignol)
+- Baptiste Pignol (https://github.com/Baptiste-Pignol)
 - FXHibon (https://github.com/FXHibon)
