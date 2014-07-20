@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="stylesheets/style.css"/>
     <script src="/platform/platform.js">
     </script>
+    <script src="https://cdn.socket.io/socket.io-1.0.6.js"></script>
     <link rel="import"
           href="/font-roboto/roboto.html">
     <link rel="import"
@@ -37,6 +38,10 @@
         <google-signin clientId="982205522397-8maljftcknp3ofm2d0a17n4fm85c08tt.apps.googleusercontent.com" scopes="profile"></google-signin>
     </div>
 
+    <script>
+        console.log("Création de la socket");
+        var socket = io();
+    </script>
 
 </core-header-panel>
 
