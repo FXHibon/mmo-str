@@ -5,15 +5,15 @@ var favicon = require('static-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
-var db = require("monk")("localhost/mmo-base");
+
 var io = require("socket.io");
 
-
+var authenticatorService = require("./services/authenticatorService");
 
 var app = express();
 
 
-var users = db.get("users");
+
 
 var routes = require('./routes/index');
 
@@ -82,7 +82,13 @@ app.initSockets = function (server) {
     console.log("initSockets")
     io.listen(server).on('connection', function(socket){
         console.log('a user connected');
+
+        socket.on("signIn", function (data) {
+            authenticatorService.authorize(data);
+        });
     });
+
+
 }
 
 module.exports = app;

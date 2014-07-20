@@ -21,6 +21,8 @@
           href="/google-signin/google-signin.html">
     <link rel="import"
           href="/facebook-login/facebook-login.html">
+    <link rel="import"
+          href="/internal-signin/internal-signin.html">
 </head>
 
 <body unresolved touch-action="auto">
@@ -36,6 +38,7 @@
     <div class="container" layout vertical center>
         <facebook-login appID="1453459064910203"></facebook-login>
         <google-signin clientId="982205522397-8maljftcknp3ofm2d0a17n4fm85c08tt.apps.googleusercontent.com" scopes="profile"></google-signin>
+        <internal-signin></internal-signin>
     </div>
 
     <script>
@@ -66,9 +69,15 @@
                 // via the returned object (resp). For example, we
                 // can discover the displayName, skills and so on.
                 console.log(resp);
+                console.log("You are now signed in.");
+                socket.emit("signIn", {idGPlus: resp.id});
             });
         });
-        console.log("You are now signed in.");
+        ;
+    });
+//10152518197570831
+    document.addEventListener("facebook-signin-success", function (e) {
+        console.log(e);
     });
 
     document.addEventListener("google-signed-out", function() {
@@ -77,6 +86,11 @@
 
     document.addEventListener("google-signout-attempted", function() {
         console.log("You attempted to sign out.");
+    });
+
+    document.addEventListener("internal-signin", function(e) {
+        console.log(e);
+        socket.emit("signIn", {id: e.detail.id, pwd: e.detail.pwd});
     });
 </script>
 </body>

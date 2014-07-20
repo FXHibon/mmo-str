@@ -1,0 +1,24 @@
+<link rel="import" href="../polymer/polymer.html">
+
+<!-- Define element -->
+<polymer-element name="internal-signin">
+    <template>
+        <style> /*.
+
+        ..*/
+        </style>
+
+
+            <input type="text" placeholder="Nom d'utilisateur" id="id" />
+            <input type="password" placeholder="Mot de passe" id="pwd"/>
+            <button on-tap="{{login}}">Connexion</button>
+
+    </template>
+    <script>
+        Polymer("internal-signin", {
+            login: function(event, detail, sender) {
+                this.fire("internal-signin", {id: this.$.id.value, pwd: this.$.pwd.value});
+            }
+        });
+    </script>
+</polymer-element>
