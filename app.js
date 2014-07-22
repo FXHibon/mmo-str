@@ -5,6 +5,7 @@ var favicon = require('static-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+var fs = require('fs');
 
 var io = require("socket.io");
 
@@ -12,11 +13,7 @@ var authenticatorService = require("./services/authenticatorService");
 
 var app = express();
 
-
-
-
 var routes = require('./routes/index');
-
 
 
 // view engine setup
@@ -42,12 +39,11 @@ app.use(express.static(path.join(__dirname, 'bower_components')));
 app.use('/', routes);
 
 /// catch 404 and forward to error handler
-app.use(function(req, res, next) {
+app.use(function (req, res, next) {
     var err = new Error('Not Found');
     err.status = 404;
     next(err);
 });
-
 
 
 /// error handlers
@@ -55,7 +51,7 @@ app.use(function(req, res, next) {
 // development error handler
 // will print stacktrace
 if (app.get('env') === 'development') {
-    app.use(function(err, req, res, next) {
+    app.use(function (err, req, res, next) {
         res.status(err.status || 500);
         res.render('error', {
             message: err.message,
@@ -66,7 +62,7 @@ if (app.get('env') === 'development') {
 
 // production error handler
 // no stacktraces leaked to user
-app.use(function(err, req, res, next) {
+app.use(function (err, req, res, next) {
     res.status(err.status || 500);
     res.render('error', {
         message: err.message,
@@ -80,7 +76,7 @@ app.use(function(err, req, res, next) {
  */
 app.initSockets = function (server) {
     console.log("initSockets")
-    io.listen(server).on('connection', function(socket){
+    io.listen(server).on('connection', function (socket) {
         console.log('a user connected');
 
         socket.on("signIn", function (data) {
@@ -89,6 +85,19 @@ app.initSockets = function (server) {
     });
 
 
+}
+
+/**
+ * Écris le pid du processus dans un fichier
+ */
+app.initPid = function () {
+    fs.writeFile("pid", process.pid, function (err) {
+        if (err) {
+            throw  err;
+        }
+        console.log("PID saved");
+
+    });
 }
 
 module.exports = app;

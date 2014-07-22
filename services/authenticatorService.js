@@ -30,7 +30,8 @@ function authorizeNetwork(dataName, id) {
 
 function authorizeInternal(id, pwd) {
     var encryptedPwd = crypto.createHash('md5').update(pwd).digest("hex");
-    var user = users.find({id: id, pwd: encryptedPwd}, function(err, docs) {
+    //var encryptedPwd = pwd;
+    var user = users.find({pseudo: id, pwd: encryptedPwd}, function(err, docs) {
         console.log("au bon endroit");
         console.log(docs);
     });
