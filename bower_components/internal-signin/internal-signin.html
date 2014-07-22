@@ -3,16 +3,48 @@
 <!-- Define element -->
 <polymer-element name="internal-signin">
     <template>
-        <style> /*.
-
-        ..*/
+        <style>
+            :host {
+                display: block;
+                position: relative;
+                background-color: white;
+                padding: 20px;
+                width: 100%;
+                font-size: 1.2rem;
+                font-weight: 300;
+            }
+            .card-header {
+                margin-bottom: 10px;
+            }
+            polyfill-next-selector { content: '.card-header h2'; }
+            .card-header ::content h2 {
+                margin: 0;
+                font-size: 1.8rem;
+                font-weight: 300;
+            }
+            polyfill-next-selector { content: '.card-header img'; }
+            .card-header ::content img {
+                width: 70px;
+                border-radius: 50%;
+                margin: 10px;
+            }
+            core-icon-button {
+                position: absolute;
+                top: 3px;
+                right: 3px;
+                fill: #636363;
+            }
+            :host([favorite]) core-icon-button {
+                fill: #da4336;
+            }
         </style>
 
-
+        <div class="card-header" layout horizontal center>
             <input type="text" placeholder="Nom d'utilisateur" id="id" />
             <input type="password" placeholder="Mot de passe" id="pwd"/>
             <button on-tap="{{login}}">Connexion</button>
-
+        </div>
+    <content></content>
     </template>
     <script>
         Polymer("internal-signin", {
