@@ -1,0 +1,11 @@
+{
+  "name": "internal-signin",
+  "version": "0.0.1",
+  "homepage": "https://github.com/FXHibon/mmo-str",
+  "authors": [
+    "FXHibon <djxf44@gmail.com>"
+  ],
+  "description": "internal signin",
+  "main": "internal-signin.html",
+  "license": "MIT"
+}
