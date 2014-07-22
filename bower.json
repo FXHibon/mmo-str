@@ -25,11 +25,10 @@
     "paper-tabs": "Polymer/paper-tabs#~0.3.4",
     "font-roboto": "Polymer/font-roboto#~0.3.4",
     "google-signin": "GoogleWebComponents/google-signin#~0.0.7",
-    "facebook-login": "*"
+    "facebook-login": "*",
+    "paper-elements": "Polymer/paper-elements#~0.3.4"
   },
   "resolutions": {
-    "platform": ">=0.3.0 <1.0.0",
-    "core-component-page": ">=0.3.0 <1.0.0",
     "polymer": ">=0.3.0 <1.0.0"
   }
 }

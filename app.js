@@ -96,7 +96,14 @@ app.initPid = function () {
             throw  err;
         }
         console.log("PID saved");
+        process.on("exit", function() {
+            console.log("stopping server");
+            fs.unlinkSync("pid");
+            console.log("pid file deleted");
+        });
     });
 }
+
+
 
 module.exports = app;
