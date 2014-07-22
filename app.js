@@ -96,7 +96,6 @@ app.initPid = function () {
             throw  err;
         }
         console.log("PID saved");
-
     });
 }
 
