@@ -31,4 +31,18 @@ paper-tabs {
     .container {
         width: 400px;
     }
+
+    .card-header {
+        display: block;
+        position: relative;
+        background-color: white;
+        padding: 20px;
+        width: 100%;
+        font-size: 1.2rem;
+        font-weight: 300;
+    }
+    .card-header {
+        margin-bottom: 10px;
+    }
+
 }
