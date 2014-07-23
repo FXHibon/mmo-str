@@ -1,0 +1,38 @@
+<link rel="import" href="../polymer/polymer.html">
+<link rel="import" href="../paper-input/paper-input.html">
+<link rel="import"
+    href="../google-signin/google-signin.html">
+<link rel="import"
+    href="../facebook-login/facebook-login.html">
+<link rel="import"
+    href="../internal-signin/internal-signin.html">
+<link rel="import" href="../core-collapse/core-collapse.html">
+
+<!-- Define element -->
+<polymer-element name="signin-group">
+    <template>
+    <style>
+    </style>
+    <section>
+    <button on-click="{{toggle}}">{{libelleButton}}</button>
+
+    <core-collapse id="collapse" fixedSize class="box">
+        <div class="content">
+            <internal-signin></internal-signin>
+            <facebook-login appID="1453459064910203"></facebook-login>
+            <google-signin clientId="982205522397-8maljftcknp3ofm2d0a17n4fm85c08tt.apps.googleusercontent.com" scopes="profile"></google-signin>
+        </div>
+    </core-collapse>
+    </core-collapse>
+</section>
+    </template>
+    <script>
+        Polymer("signin-group", {
+            libelleButton: "Connexion",
+            toggle: function() {
+                this.$.collapse.toggle();
+                this.libelleButton == "Connexion" ? this.libelleButton = "Retour" : this.libelleButton = "Connexion";
+            }
+        });
+    </script>
+</polymer-element>

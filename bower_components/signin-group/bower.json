@@ -1,0 +1,11 @@
+{
+  "name": "signin-group",
+  "version": "0.0.1",
+  "homepage": "https://github.com/FXHibon/mmo-str",
+  "authors": [
+    "FXHibon <djxf44@gmail.com>"
+  ],
+  "description": "signin group",
+  "main": "signin-group.html",
+  "license": "MIT"
+}
