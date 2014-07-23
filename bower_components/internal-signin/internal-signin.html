@@ -1,18 +1,16 @@
 <link rel="import" href="../polymer/polymer.html">
 <link rel="import" href="../paper-input/paper-input.html">
+<link rel="import" href="../paper-button/paper-button.html">
 
-<!-- Define element -->
 <polymer-element name="internal-signin">
     <template>
-        <style>
-
-        </style>
 
         <div layout horizontal center>
-            <input type="text" placeholder="Nom d'utilisateur" id="id" />
-            <input type="password" placeholder="Mot de passe" id="pwd"/>
-            <button on-tap="{{login}}">Connexion</button>
+            <paper-input type="text" label="Nom d'utilisateur" id="id"></paper-input>
+            <paper-input type="password" label="Mot de passe" id="pwd"></paper-input>
+            <paper-button on-tap="{{login}}" raisedButton >Connexion</paper-button>
         </div>
+
     <content></content>
     </template>
     <script>
