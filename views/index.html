@@ -23,6 +23,14 @@
           href="/facebook-login/facebook-login.html">
     <link rel="import"
           href="/internal-signin/internal-signin.html">
+    <link rel="import" 
+        href="/core-toolbar/core-toolbar.html">
+    <link rel="import" 
+        href="/core-header-panel/core-header-panel.html">
+    <link rel="import" 
+        href="/core-icons/core-icons.html">
+    <link rel="import" 
+        href="/paper-icon-button/paper-icon-button.html">
 </head>
 
 <body unresolved touch-action="auto">
@@ -32,14 +40,13 @@
         <paper-tabs selected="home" valueattr="name" self-end>
             <paper-tab name="home">Home</paper-tab>
         </paper-tabs>
-    </core-toolbar>
-
-    <!-- main page content will go here -->
-    <div class="container card-header" layout vertical center>
-
         <internal-signin></internal-signin>
         <facebook-login appID="1453459064910203"></facebook-login>
         <google-signin clientId="982205522397-8maljftcknp3ofm2d0a17n4fm85c08tt.apps.googleusercontent.com" scopes="profile"></google-signin>
+    </core-toolbar>
+
+    <!-- main page content will go here -->
+    <div id="connexion" class="container card-header" layout vertical center>
     </div>
 
     <script>

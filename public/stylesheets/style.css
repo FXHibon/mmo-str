@@ -20,6 +20,10 @@ paper-tabs {
     -ms-user-select: none;
     user-select: none;
 }
+#connexion {
+    height: 1000px;
+    margin: 0px;
+}
 .container {
     width: 80%;
     margin: 50px auto;
