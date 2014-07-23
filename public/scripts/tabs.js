@@ -7,6 +7,9 @@ tabs.addEventListener('core-select', function () {
     console.log("Selected: " + tabs.selected);
 });
 
+console.log("Création de la socket");
+var socket = io();
+
 document.addEventListener("google-signin-success", function(e) {
     // Access the GAPI instance passed back from authorization
     var gapi = e.detail.gapi;
