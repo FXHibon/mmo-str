@@ -9,20 +9,19 @@ var crypto = require("crypto");
 exports.authorize = function (data, callback) {
     console.log("signing: data = " + data.idGPlus);
     if (data.idGPlus) {
-        return authorizeNetwork("idGPlus", data.idGPlus, callback);
+        authorizeNetwork("idGPlus", data.idGPlus, callback);
+        return;
     }
     if (data.idFb) {
-        return authorizeNetwork("idFb", data.idFb, callback);
+        authorizeNetwork("idFb", data.idFb, callback);
+        return;
     }
     if (data.id && data.pwd) {
-        return authorizeInternal(data.id, data.pwd, callback);
+        authorizeInternal(data.id, data.pwd, callback);
+        return;
     }
 
 };
-
-function fxDTC () {
-
-}
 
 function authorizeNetwork(dataName, id, callback) {
     var obj = {};
