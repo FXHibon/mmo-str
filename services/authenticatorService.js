@@ -26,15 +26,17 @@ exports.authorize = function (data, callback) {
 function authorizeNetwork(dataName, id, callback) {
     var obj = {};
     obj[dataName] = id;
+    var mCallBack = callback;
     var user = users.find(obj, function (err, docs) {
-        callback(docs);
+        mCallBack(docs);
     });
 };
 
 function authorizeInternal(id, pwd, callback) {
     var encryptedPwd = crypto.createHash('md5').update(pwd).digest("hex");
+    var mCallBack = callback;
     //var encryptedPwd = pwd;
     var user = users.find({pseudo: id, pwd: encryptedPwd}, function(err, docs) {
-        callback(docs);
+        mCallBack(docs);
     });
 }
