@@ -27,16 +27,13 @@ function authorizeNetwork(dataName, id, callback) {
     var obj = {};
     obj[dataName] = id;
     var mCallBack = callback;
-    var user = users.find(obj, function (err, docs) {
-        mCallBack(docs);
-    });
+    users.find(obj, mCallBack);
 };
 
 function authorizeInternal(id, pwd, callback) {
-    var encryptedPwd = crypto.createHash('md5').update(pwd).digest("hex");
+    //var encryptedPwd = crypto.createHash('md5').update(pwd).digest("hex");
     var mCallBack = callback;
-    //var encryptedPwd = pwd;
-    var user = users.find({pseudo: id, pwd: encryptedPwd}, function(err, docs) {
-        mCallBack(docs);
-    });
+    var encryptedPwd = pwd;
+    console.log("authorizeInternal" + " id = " + id + " pwd = " + pwd);
+    users.find({pseudo: id, pwd: encryptedPwd}, mCallBack);
 }

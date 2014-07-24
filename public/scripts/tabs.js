@@ -10,6 +10,25 @@ tabs.addEventListener('core-select', function () {
 console.log("Création de la socket");
 var socket = io();
 
+/**
+ * proc when connexion is successful
+ * @param data
+ */
+function connexionSucceed(data) {
+    console.log(data);
+}
+
+/**
+ * proc when connexion is unsuccessful
+ * @param data
+ */
+function connexionFailed(data) {
+    console.log(data);
+}
+
+socket.on("connexion-succeed", connexionSucceed);
+socket.on("connexion-failed", connexionFailed);
+
 document.addEventListener("google-signin-success", function(e) {
     // Access the GAPI instance passed back from authorization
     var gapi = e.detail.gapi;
