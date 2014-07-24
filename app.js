@@ -6,10 +6,10 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var fs = require('fs');
+var socketService = require('./services/socketService');
 
 var io = require("socket.io");
 
-var authenticatorService = require("./services/authenticatorService");
 
 var app = express();
 
@@ -77,11 +77,9 @@ app.use(function (err, req, res, next) {
 app.initSockets = function (server) {
     console.log("initSockets")
     io.listen(server).on('connection', function (socket) {
-        console.log('a user connected');
+        console.log('a socket was created');
+        socketService.initEvents(socket);
 
-        socket.on("signIn", function (data) {
-            authenticatorService.authorize(data);
-        });
     });
 
 
