@@ -29,6 +29,8 @@
     "paper-elements": "Polymer/paper-elements#~0.3.4"
   },
   "resolutions": {
-    "polymer": ">=0.3.0 <1.0.0"
+    "polymer": "^0.3.0",
+    "platform": "^0.3.0",
+    "core-component-page": "^0.3.0"
   }
 }
