@@ -2,7 +2,69 @@
  * Created by Fx on 20/07/2014.
  */
 
-var db = require("monk")("localhost/mmo-base");
+var EventEmitter = require('events').EventEmitter;
+
+function Authenticator(config) {
+    var UserDao = require("../services/userDao").UserDao;
+    this.userDao = new UserDao({
+        dataName: "localhost/mmo-base"
+    });
+    this.connectionInProgress = false;
+    this.connected = false;
+
+    this.visitorVerifPwd = {
+        "pseudo": verifPassword,
+        "googlePlus": verifGoogleId,
+        "Fb": verifFbId
+    };
+}
+Authenticator.prototype = new EventEmitter();
+
+
+Authenticator.prototype.connect = function(config) {
+    if (this.connectionInProgress)
+        throw ({
+            location: "authenticatorJs::connect",
+            msg: "Connection already in progress"
+        });
+    if (this.connected)
+        throw ({
+            location: "authenticatorJs::connect",
+            msg: "Already connected"
+        });
+    var me = this;
+    this.userDao.getUser(config, function(results, conf, dao) {
+        var res = me.visitorVerifPwd[config.idType](results, (config.pwd || config.token));
+        if (res) {
+            me.emit("connect", results);
+            return;
+        }
+        me.emit("connectFailed");
+
+    });
+};
+
+
+// TODO add MD5
+function verifPassword(user, password) {
+    console.log(user.pwd);
+    console.log(password);
+    return user.pwd === password;
+}
+
+// TODO
+function verifGoogleId(user, token) {
+    return true;
+}
+
+// TODO
+function verifFbId(user, token) {
+    return true;
+}
+
+exports.Authenticator = Authenticator;
+
+/*ar db = require("monk")("localhost/mmo-base");
 var users = db.get("users");
 var crypto = require("crypto");
 
@@ -36,4 +98,4 @@ function authorizeInternal(id, pwd, callback) {
     var encryptedPwd = pwd;
     console.log("authorizeInternal" + " id = " + id + " pwd = " + pwd);
     users.find({pseudo: id, pwd: encryptedPwd}, mCallBack);
-}
+}*/
