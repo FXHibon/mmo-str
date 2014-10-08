@@ -47,9 +47,8 @@ Authenticator.prototype.connect = function(config) {
 
 // TODO add MD5
 function verifPassword(user, password) {
-    console.log(user.pwd);
-    console.log(password);
-    return user.pwd === password;
+    var crypto = require("crypto");
+    return user.pwd === crypto.createHash('md5').update(password).digest("hex");
 }
 
 // TODO

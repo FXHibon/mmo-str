@@ -7,14 +7,15 @@ var Authenticator = require("../services/authenticatorService").Authenticator;
 
 exports.initEvents = function(socket) {
     console.log("initEvents");
+    var auth = new Authenticator();
+    auth.on("connect", function(results) {
+        console.log("connect");
+        console.log(results);
+    });
+
     socket.on("signIn", function(data) {
         console.log("signIn");
         //authenticatorService.authorize(data, validate);
-        var auth = new Authenticator();
-        auth.on("connect", function(results) {
-            console.log("connect");
-            console.log(results);
-        });
         data.idType = "pseudo";
         data.collectionName = "users";
         auth.connect(data);
