@@ -12,7 +12,7 @@
     "cookie-parser": "~1.0.1",
     "body-parser": "*",
     "debug": "~0.7.4",
-    "ejs": "~0.8.5",
+    "ejs": "~3.1.5",
     "monk": "*",
     "mongodb": "*",
     "socket.io": "*"
